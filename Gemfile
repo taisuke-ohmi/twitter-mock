@@ -6,6 +6,8 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.1'
 gem 'mysql2'
 gem 'listen', '>= 3.0.5', '< 3.2'
+gem 'bootstrap'
+gem 'jquery-rails'
 # Use Puma as the app server
 # gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

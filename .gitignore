@@ -5,6 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
+*.swp
 /.bundle
 
 # Ignore the default SQLite database.
@@ -26,6 +27,7 @@
 
 /public/assets
 .byebug_history
+
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
