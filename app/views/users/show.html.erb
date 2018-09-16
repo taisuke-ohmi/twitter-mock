@@ -1,0 +1,10 @@
+<div class="jumbotron">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-4">
+      <%= image_tag avatar_url(@user), class: "round-img" %>
+      <h1><%= @user.name %></h1>
+      <%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
+      <%= @user.email %>
+    </div>
+  </div>
+</div>
