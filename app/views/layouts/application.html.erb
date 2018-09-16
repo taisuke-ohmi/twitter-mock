@@ -12,8 +12,12 @@
   <body>
     <%= render 'layouts/header' %>
     <% if flash.any? %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if !notice.blank? %>
+        <div class="alert alert-primary"><%= notice %></div>
+      <% end %>
+      <% if !alert.blank? %>
+        <div class="alert alert-warning"><%= alert %></div>
+      <% end %>
     <% end %>
     <%= yield %>
   </body>
