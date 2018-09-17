@@ -2,10 +2,13 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = "Post created!"
-      redirect_to current_user
+      flash[:notice] = "Post created!"
+      redirect_to @post.user
     else
-      redirect_to current_user
+      @post.errors.full_messages.each do |m|
+        flash[:alert] = m
+      end
+      redirect_to @post.user
     end
   end
 
