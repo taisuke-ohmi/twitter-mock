@@ -1,15 +1,23 @@
 <div class="jumbotron">
   <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-      <%= image_tag avatar_url(@user), size: 120 %>
+    <div class="col col-lg-1">
+      <%= image_tag avatar_url(@user), size: 105 %>
     </div>
     <div class="col col-lg-4">
-      <h1><%= @user.name %></h1>
+      <h3><%= @user.name %></h3>
       <h6><%= @user.email %></h6>
       <% if @user == current_user %>
         <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
       <% end %>
+      <br>
+      <br>
+      <%= form_for(@post) do |f| %>
+        <%= f.text_area :content, placeholder: "Compose new post...", class: "form-control", rows: 5 %>
+        <br>
+        <%= f.submit "Post", class: "btn btn-primary" %>
+      <% end %>
     </div>
+    <div class="col col-lg-1"></div>
     <div class="col col-lg-6">
       <% if @posts.any? %>
         <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
