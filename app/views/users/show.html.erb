@@ -29,6 +29,7 @@
             <span class="h5"><%= p.content %></span>
             <br>
             Posted <%= time_ago_in_words(p.created_at) %> ago.
+            <%= link_to "delete", p, method: :delete, data: { confirm: "Are you sure?" } %>
             </p>
           </div>
         <% end %>

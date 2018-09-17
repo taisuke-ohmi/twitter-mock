@@ -13,6 +13,16 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = current_user.posts.find_by(id: params[:id])
+    if @post.destroy
+      flash[:notice] = "Post deleted"
+      redirect_to @post.user
+    else
+      @post.errors.full_messages.each do |m|
+        flash[:alert] = m
+      end
+      redirect_to @post.user
+    end
   end
 
   private
