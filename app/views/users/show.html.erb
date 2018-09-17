@@ -1,18 +1,30 @@
 <div class="jumbotron">
   <div class="row justify-content-md-center">
-    <div class="col col-lg-7">
-      <div class="row justify-content-md-center">
-        <div class="col col-lg-3">
-          <%= image_tag avatar_url(@user), size: 120 %>
-        </div>
-        <div class="col col-lg-4">
-          <h1><%= @user.name %></h1>
-          <h6><%= @user.email %></h6>
-          <% if @user == current_user %>
-            <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
-          <% end %>
-        </div>
-      </div>
+    <div class="col col-lg-2">
+      <%= image_tag avatar_url(@user), size: 120 %>
+    </div>
+    <div class="col col-lg-4">
+      <h1><%= @user.name %></h1>
+      <h6><%= @user.email %></h6>
+      <% if @user == current_user %>
+        <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
+      <% end %>
+    </div>
+    <div class="col col-lg-6">
+      <% if @posts.any? %>
+        <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+        <% @posts.each do |p| %>
+          <div class="media text-muted pt-3 border-bottom border-gray">
+            <%= image_tag avatar_url(@user), size: 50, class: "mr-2 rounded" %>
+            <p class="media-body pb-3 mb-0 small lh-125">
+            <strong class="d-block text-gray-dark">@<%= p.user.name %></strong>
+            <span class="h5"><%= p.content %></span>
+            <br>
+            Posted <%= time_ago_in_words(p.created_at) %> ago.
+            </p>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
