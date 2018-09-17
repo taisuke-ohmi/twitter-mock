@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get 'static_pages/home'
 
   resources :users, only: [:show]
+  resources :posts, only: [:create, :destroy]
 end
